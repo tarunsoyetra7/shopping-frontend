@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
     Collapse,
     Navbar,
@@ -14,28 +15,23 @@ import {
     NavbarText,
     Button,
   } from 'reactstrap';
+import Home from "./Home";
 
 function NavbarHeader() {
-
-  // const [isOpen, setIsOpen] = useState(false);
-
-  // const toggle = () => setIsOpen(!isOpen);
-
     return(
         <Navbar fixed="top" container="fluid" style={{textAlign:"center" ,padding:"5px", position:"fixed"}} 
-    color="dark"
-    dark>
+          color="dark" >
           <Nav>
             <NavItem>
-              <NavLink style={{fontSize:"20px", color:"white"}} href="/components/">Reactstrap</NavLink>
+              <Link className="nav-link" style={{fontSize:"20px", color:"white"}} to="/">Reactstrap</Link>
             </NavItem>
             <NavItem>
-              <NavLink style={{fontSize:"20px", color:"white"}} href="/components/">Components</NavLink>
+              <Link className="nav-link" style={{fontSize:"20px", color:"white"}} to="/#">Components</Link>
             </NavItem>
             <NavItem>
-              <NavLink style={{fontSize:"20px", color:"white"}} href="https://github.com/reactstrap/reactstrap">
+              <Link className="nav-link" style={{fontSize:"20px", color:"white"}} to="/#">
                 GitHub
-              </NavLink>
+              </Link>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret style={{fontSize:"20px", color:"white"}}>
@@ -50,10 +46,8 @@ function NavbarHeader() {
             </UncontrolledDropdown>
           </Nav>
           <NavbarText style={{fontSize:"20px"}}>
-            {/* <Button outline style={{fontSize:"20px", marginRight:"10px", color:"white"}}>Sign Up</Button>
-            <Button outline style={{fontSize:"20px", marginRight:"10px", color:"white"}}>Login</Button> */}
-            <a className="nav-link" href="#" style={{display:"inline-block",  marginRight:"20px"}}>Sign Up</a>
-            <a className="nav-link" href="#" style={{display:"inline-block" , paddingRight:"20px" }}>Login</a>
+            <Link className="nav-link" to="/sign-up" style={{display:"inline-block",  marginRight:"20px", color:"white"}}>Sign Up</Link>
+            <Link className="nav-link" to="/login" style={{display:"inline-block" , paddingRight:"20px", color:"white" }}>Login</Link>
           </NavbarText>
           
       </Navbar> 

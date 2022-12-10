@@ -1,23 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
 import { ToastContainer, toast } from 'react-toastify';
-import { Button } from 'reactstrap';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { Fragment } from 'react';
-import Body from './components/Body';
+import Home from './components/Home';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import SignUp from './components/SignUp';
+import Login from './components/Login';
 
 function App() {
     // const notify = () => toast("Wow so easy!");
     return (
-      <Fragment>
-        <Header />
+      <div>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+          <Footer/>
         {/* <Button color='primary' outline onClick={notify}>Notify!</Button>
         <ToastContainer />*/}
-        <Body />
-        <div ></div>
-        <Footer/>
-      </Fragment>
+        </Router>
+      </div>
     );
 }
 
